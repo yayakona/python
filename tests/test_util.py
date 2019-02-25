@@ -1,7 +1,7 @@
 # coding: UTF-8
 
 import unittest
-from common import common
+from srcs import util
 
 
 class TestCommon(unittest.TestCase):

@@ -3,6 +3,8 @@
 import datetime
 
 
+all_delete = ""
+
 def load_data(stock_id: Int, start: String = None, end: String = None):
     """
     Parameter
@@ -27,6 +29,7 @@ def load_data(stock_id: Int, start: String = None, end: String = None):
     if all_update_flag:
         conn.executor(Sqls.all_delete(stock_id))
 download_data(stock_id)
+
     
     elif diff_update_flag or update_date < now_date:
     

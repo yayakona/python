@@ -1,0 +1,4 @@
+sqlite3 dev.db
+create table t_stock_prices(stock_id integer, date text,open real, high real, low real, close real, adjusted_open real, adjusted_high real, adjusted_low real, adjusted_close real, yeild real);
+create table m_stock_info(stock_id, company_name text, updated_at text);
+.exit

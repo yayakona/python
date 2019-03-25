@@ -50,10 +50,23 @@ class SqliteAccessor:
             pandasからうまくupdateかけたいけど無理そう
             http://paperface.hatenablog.com/entry/2019/02/04/【SQLite_%2B_Python_%2B_Pandas】SQLiteをPandas（DataFrame）で扱う
             これ以上調べるのめんどくさいから普通に自分でquery書いた方が良さげ
-        """ update_sql_m_stock_info = datetime.now().strftime("%Y-%m-%d")
+        """ 
+        today_date = datetime.now().strftime("%Y-%m-%d")
         conn.execute(update_sql_m_stock_info, (update_at, stock_id))
 
     def update_m_stock_info(self, stock_id):
+        cur = self.conn.cursor()
+        cur.execute(update_sql_m_stock_info, (today_date, str(stock_id))
+        cur.close()
+        self.conn.commit()
+
+    def insert_m_stock_info(df):
+         if len(df) is not 1:
+             throw exc
+         cur = self.conn.cursor()
+         cur.execute(sql, 
+         df.loc[:,[stock_id, company_name, updated_at]
+       
         
      
 

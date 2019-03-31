@@ -9,7 +9,7 @@ import pandas as pd
 
 
 db_name = os.path.join("data", "sqllite", "dev.db")
-update_sql_m_stock_info = "UPDATE SET update_by = ? WHERE stock_id = ?;"
+update_sql_m_stock_info = "UPDATE m_stock_info SET update_by = ? WHERE stock_id = ?;"
 
 
 class SqliteAccessor:
@@ -20,6 +20,18 @@ class SqliteAccessor:
 
     def __delete__(self):
         self.conn.close()
+
+    """
+    table
+        m_stock_info
+    columns
+        
+    method
+        C: 
+        R:
+        U:
+        D: 
+    """
 
     def select_m_stock_info(self, stock_id = None):
         sql = "select * from m_stock_info"
@@ -32,9 +44,29 @@ class SqliteAccessor:
         return pd.DataFrame(df,columns = ["stock_id", "company_name" , "updated_at"])
         
     def update_m_stock_info(self, stock_id):
-        update_sql_m_stock_info = datetime.now().strftime("%Y-%m-%d")
+        """
+
+        TODO
+            pandasからうまくupdateかけたいけど無理そう
+            http://paperface.hatenablog.com/entry/2019/02/04/【SQLite_%2B_Python_%2B_Pandas】SQLiteをPandas（DataFrame）で扱う
+            これ以上調べるのめんどくさいから普通に自分でquery書いた方が良さげ
+        """ 
+        today_date = datetime.now().strftime("%Y-%m-%d")
         conn.execute(update_sql_m_stock_info, (update_at, stock_id))
 
-    #def select_
+    def update_m_stock_info(self, stock_id):
+        cur = self.conn.cursor()
+        cur.execute(update_sql_m_stock_info, (today_date, str(stock_id))
+        cur.close()
+        self.conn.commit()
 
+    def insert_m_stock_info(df):
+         if len(df) is not 1:
+             throw exc
+         cur = self.conn.cursor()
+         cur.execute(sql, 
+         df.loc[:,[stock_id, company_name, updated_at]
+       
+        
+     
 

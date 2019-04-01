@@ -10,7 +10,7 @@ class PandasDataAccessor:
 
     @staticmethod
     def sort_date(df):
-        df.sort_values("Date")
+        df.sort_index("Date")
     
     @staticmethod
     def load(stock_id, start="1000-01-01", end="9999-12-31"):
